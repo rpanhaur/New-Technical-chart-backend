@@ -24,10 +24,10 @@ exports.fetchRoster = async function (req, res) {
 
 exports.postRoster = async function (req, res) {
 
-  console.log(req.body);
+ 
 
   try {
-    console.log(req.body);
+  
 
     const { sn, programDetails, inTime, outTime,duration, remarks } = req.body
 
@@ -41,6 +41,8 @@ exports.postRoster = async function (req, res) {
 
 
     })
+    
+    console.log(result);
 
     res.json({
       message: 'Roster is  is Successfully posted',

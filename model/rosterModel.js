@@ -3,7 +3,7 @@ const rosterModel = (sequelize, DataTypes) => {
   const roster = sequelize.define('roster', {
 
     sn: {
-      type: DataTypes.INTEGER
+      type: DataTypes.BIGINT
     },
     programDetails: {
       type: DataTypes.TEXT
@@ -28,4 +28,5 @@ const rosterModel = (sequelize, DataTypes) => {
 return roster 
 
 }
+
 module.exports=rosterModel 
