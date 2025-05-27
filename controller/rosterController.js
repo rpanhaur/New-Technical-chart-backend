@@ -29,14 +29,16 @@ exports.postRoster = async function (req, res) {
   try {
   
 
-    const { sn, programDetails, inTime, outTime,duration, remarks } = req.body
+    const {sn,scheduleTime,programDetails,inTime,outTime,duration,onAirTime,remarks } = req.body
 
     const result = await rosters.create({
       sn,
+      scheduleTime,
       programDetails,
       inTime,
       outTime,
       duration,
+      onAirTime,
       remarks
 
 
@@ -89,15 +91,19 @@ exports.editRoster = async function (req, res) {
 
   try {
     const id = req.params.id
-    const { sn, programDetails, inTime, outTime,duration, remarks } = req.body
+    const { sn,scheduleTime,programDetails,inTime,outTime,duration,onAirTime,remarks } = req.body
 
     const rosterUpdate=await rosters.update({
       sn,
+      scheduleTime,
       programDetails,
       inTime,
       outTime,
       duration,
+      onAirTime,
       remarks
+
+      
 
     }, {
       where: {

@@ -5,18 +5,26 @@ const rosterModel = (sequelize, DataTypes) => {
     sn: {
       type: DataTypes.BIGINT
     },
+    scheduleTime:{
+      type:DataTypes.TIME 
+    },
     programDetails: {
       type: DataTypes.TEXT
     },
-    inTime: {
-      type: DataTypes.TIME  
+    inTime:{
+      type:DataTypes.TIME
     },
-    outTime: {
-      type: DataTypes.TIME  
-    }  ,
+    outTime:{
+      type:DataTypes.TIME
+    },
+
+     
     duration:{
       type:DataTypes.TIME 
 
+    },
+    onAirTime:{
+      type:DataTypes.TIME
     },
     remarks:{
       type:DataTypes.TEXT
