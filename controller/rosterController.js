@@ -29,7 +29,7 @@ exports.postRoster = async function (req, res) {
   try {
   
 
-    const {sn,scheduleTime,programDetails,inTime,outTime,duration,onAirTime,remarks } = req.body
+    const {sn,scheduleTime,programDetails,inTime,outTime,duration,onAirTime,remarks,shift,shiftDate } = req.body
 
     const result = await rosters.create({
       sn,
@@ -39,7 +39,9 @@ exports.postRoster = async function (req, res) {
       outTime,
       duration,
       onAirTime,
-      remarks
+      remarks,
+      shift,
+      shiftDate
 
 
     })
@@ -91,7 +93,7 @@ exports.editRoster = async function (req, res) {
 
   try {
     const id = req.params.id
-    const { sn,scheduleTime,programDetails,inTime,outTime,duration,onAirTime,remarks } = req.body
+    const { sn,scheduleTime,programDetails,inTime,outTime,duration,onAirTime,remarks,shift,shiftDate } = req.body
 
     const rosterUpdate=await rosters.update({
       sn,
@@ -101,7 +103,9 @@ exports.editRoster = async function (req, res) {
       outTime,
       duration,
       onAirTime,
-      remarks
+      remarks,
+      shift,
+      shiftDate
 
       
 

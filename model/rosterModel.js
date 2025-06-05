@@ -3,32 +3,42 @@ const rosterModel = (sequelize, DataTypes) => {
   const roster = sequelize.define('roster', {
 
     sn: {
-      type: DataTypes.BIGINT
+      type: DataTypes.INTEGER
     },
     scheduleTime:{
-      type:DataTypes.TIME 
+      type:DataTypes.TEXT  
     },
     programDetails: {
       type: DataTypes.TEXT
     },
     inTime:{
-      type:DataTypes.TIME
+      type:DataTypes.TEXT 
+      
     },
     outTime:{
-      type:DataTypes.TIME
+      type:DataTypes.TEXT
+      
     },
 
      
     duration:{
-      type:DataTypes.TIME 
+      type:DataTypes.TEXT 
+     
 
     },
     onAirTime:{
-      type:DataTypes.TIME
+      type:DataTypes.TEXT 
     },
     remarks:{
       type:DataTypes.TEXT
+    },
+    shift: {
+      type: DataTypes.STRING
+    },
+    shiftDate: {
+      type: DataTypes.STRING 
     }
+    
   
 })
 
