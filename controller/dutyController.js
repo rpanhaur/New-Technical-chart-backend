@@ -1,4 +1,4 @@
-const { rosters, duties } = require("../database/connection")
+const {  duties } = require("../database/connection")
 
 exports.fetchDuty = async function (req, res) {
 
@@ -29,7 +29,7 @@ exports.postDuty = async function (req, res) {
   try {
   
 
-    const {engineer1,engineer2,engineer3,engineer4,engineer5,producer,anchor,camera1,camera2,technician,electrician } = req.body
+    const {engineer1,engineer2,engineer3,engineer4,engineer5,engineer6,technician,electrician,shiftDate,shiftTime } = req.body
 
     const result = await duties.create({
       
@@ -38,12 +38,11 @@ exports.postDuty = async function (req, res) {
       engineer3,
       engineer4,
       engineer5,
-      producer,
-      anchor,
-      camera1,
-      camera2,
+      engineer6,      
       technician,
-      electrician
+      electrician,
+      shiftDate,
+      shiftTime
 
     })
     
@@ -94,20 +93,19 @@ exports.editDuty = async function (req, res) {
 
   try {
     const id = req.params.id
-    const { engineer1,engineer2,engineer3,engineer4,engineer5,producer,anchor,camera1,camera2,technician,electrician } = req.body
+    const { engineer1,engineer2,engineer3,engineer4,engineer5,engineer6,technician,electrician,shiftDate,shiftTime, } = req.body
 
-    const dutyUpdate=await rosters.update({
+    const dutyUpdate=await duties.update({
       engineer1,
       engineer2,
       engineer3,
       engineer4,
       engineer5,
-      producer,
-      anchor,
-      camera1,
-      camera2,
+      engineer6,      
       technician,
-      electrician
+      electrician,
+      shiftDate,
+      shiftTime
 
       
 
