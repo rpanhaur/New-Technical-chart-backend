@@ -54,34 +54,59 @@ const dutyModel = (sequelize, DataTypes) => {
     engineer1: {
       type: DataTypes.TEXT
     },
+    engineer1Status: {
+      type:DataTypes.STRING
+    },
     engineer2: {
       type: DataTypes.TEXT
+    },
+    engineer2Status: {
+      type:DataTypes.STRING
     },
     engineer3: {
       type: DataTypes.TEXT
     },
+    engineer3Status: {
+      type:DataTypes.STRING
+    },
     engineer4: {
       type: DataTypes.TEXT
+    },
+    engineer4Status: {
+      type:DataTypes.STRING
     },
     engineer5: {
       type: DataTypes.TEXT
     },
+    engineer5Status: {
+      type:DataTypes.STRING
+    },
     engineer6: {
       type: DataTypes.TEXT
+    },
+    engineer6Status: {
+      type:DataTypes.STRING
     },
     technician: {
       type: DataTypes.TEXT
     },
+    technicianStatus: {
+      type:DataTypes.STRING
+    },
     electrician: {
       type: DataTypes.TEXT
     },
+    electricianStatus: {
+      type:DataTypes.STRING
+    },
+    
     shiftDate: {
       type: DataTypes.DATE 
       
       
     },
     shiftTime: {
-      type: DataTypes.ENUM('Morning', 'Evening', 'Night'), // ✅ use DataTypes
+      type: DataTypes.ENUM('Morning', 'Evening', 'Midnight'), // ✅ use DataTypes
      
     }
   });

@@ -1,5 +1,7 @@
 const {  fetchDuty, postDuty, deletedDuty, editDuty, singleDuty } = require('../controller/dutyController')
 
+const authenticate = require('../middleware/authenticate');
+
 
 const dutyRouter=require('express').Router()
 

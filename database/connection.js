@@ -30,6 +30,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 // Import models
 const rosterModel = require('../model/rosterModel');
 const dutyModel = require('../model/dutyModel');
+const userModel = require('../model/userModel');
 
 // Initialize Sequelize with your Supabase PostgreSQL connection
 const sequelize = new Sequelize('postgresql://postgres.zjvordofvqyvjqtxriwj:rabindrapanhaur@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true', {
@@ -49,6 +50,7 @@ db.sequelize = sequelize;
 
 db.rosters = rosterModel(sequelize, DataTypes);
 db.duties = dutyModel(sequelize, DataTypes);
+db.users=userModel(sequelize,DataTypes)
 
 // Sync models to DB
 sequelize.sync({ alter: true }) // `alter:true` updates tables without dropping them
