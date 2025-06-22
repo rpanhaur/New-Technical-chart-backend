@@ -1,4 +1,5 @@
-const { rosters, users } = require("../database/connection")
+const { users } = require("../database/connection")
+const bcrypt = require('bcrypt')
 
 exports.fetchUser = async function (req, res) {
 
@@ -22,42 +23,29 @@ exports.fetchUser = async function (req, res) {
 
 }
 
-exports.postUsers = async function (req, res) {
+exports.postUsers = async function (req, res) {  
 
- 
 
-  try {
-  
-
-    const {email,name,password } = req.body
+    const { email, name, password } = req.body
 
     const userData = await users.create({
       email,
       name,
-      password
+      password: bcrypt.hashSync(password, 12)
 
 
     })
-    
-    console.log(result);
-
-    res.json({
+    res.status(200).json({
       message: 'Users are Successfully posted',
       userData: userData
     })
 
-  } catch (error) {
-
-    res.json({
-      message: 'Something is Wrong'
-    })
-
-  }
+  
 
 
 }
 
-exports.deleteRoster = async function (req, res) {
+exports.deleteUsers = async function (req, res) {
 
   try {
     const id = req.params.id
@@ -86,14 +74,14 @@ exports.editUsers = async function (req, res) {
 
   try {
     const id = req.params.id
-    const { email,name,password } = req.body
+    const { email, name, password } = req.body
 
-    const userUpdate=await users.update({
+    const userUpdate = await users.update({
       email,
       name,
       password
 
-      
+
 
     }, {
       where: {
@@ -109,32 +97,31 @@ exports.editUsers = async function (req, res) {
   } catch (error) {
 
     res.json({
-      message:'Something is wrong'
+      message: 'Something is wrong'
     })
 
   }
 
 }
 
-exports.singleRoster=async function(req,res){
+exports.singleUser = async function (req, res) {
 
   try {
-    const id=req.params.id
-    const singleUser=await users.findByPk(id)
+    const id = req.params.id
+    const singleUser = await users.findByPk(id)
 
     res.json({
-      message:'Single User is Successfully fetched',
+      message: 'Single User is Successfully fetched',
       singleUser
     })
-    
+
   } catch (error) {
 
     res.json({
-      message:'Something is Wrong'
+      message: 'Something is Wrong'
     })
-    
+
   }
 
- 
+
 }
- 

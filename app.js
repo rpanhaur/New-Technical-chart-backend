@@ -5,6 +5,8 @@ const dutyRouter=require('./routes/dutyRouter')
 const cors=require('cors')
 
 const dotenv=require('dotenv')
+const signUpRouter = require('./routes/signUpRouter')
+const signRouter = require('./routes/signInRouter')
 
 
 dotenv.config()
@@ -21,6 +23,8 @@ app.use(express.json())
 
 app.use('/api',rosterRouter)
 app.use('/api',dutyRouter)
+app.use('/api',signUpRouter)
+app.use('/api',signRouter)
 
 
 
