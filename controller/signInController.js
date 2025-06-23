@@ -34,8 +34,8 @@ exports.signIn=async (req,res)=>{
       })
 
       res.status(200).json({
-        token:token,
-        message:'Congratulation You are Successfully Login '
+        token:token
+        
       })
     }else{
       res.status(400).json({
