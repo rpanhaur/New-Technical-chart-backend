@@ -2,7 +2,7 @@ const { users } = require("../database/connection")
 const bcrypt =require('bcrypt')
 const jwt=require('jsonwebtoken')
 
-exports.signIn=async (req,res)=>{
+exports.signIn=async (req,res,next)=>{
 
   const {email,password}=req.body
 
@@ -45,6 +45,8 @@ exports.signIn=async (req,res)=>{
 
 
   }
+
+  next()
 
 
 
